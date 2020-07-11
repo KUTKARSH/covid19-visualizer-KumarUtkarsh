@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     console.log(JSON.stringify(obj));
     let temp = localStorage.getItem(key);
     console.log("Key to get is " + key);
-    alert(temp);
+    // alert(temp);
     if(temp === null)
     {
       localStorage.setItem(key,JSON.stringify(obj));

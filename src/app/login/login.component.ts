@@ -20,9 +20,9 @@ export class LoginComponent implements OnInit {
 
   login(){
     let key = this.email + " " + this.password;
-    alert("Key to fetch " + key);
+    // alert("Key to fetch " + key);
     let user = localStorage.getItem(key);
-    alert(user)
+    // alert(user)
     if(user != null){
       this.loginSuccess = true;
       alert("Login successful");

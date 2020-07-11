@@ -19,17 +19,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    let key = this.email + " " + this.password;
+    let key : string = this.email + " " + this.password;
     // alert("Key to fetch " + key);
     let user = localStorage.getItem(key);
     // alert(user)
-    if(user != null){
+    if(user === null)
+    alert("Login unsuccessful...Retry");
+    else{
       this.loginSuccess = true;
       alert("Login successful");
     }
-    else
-    alert("Login unsuccessful...Retry");
-
   }
 
 }

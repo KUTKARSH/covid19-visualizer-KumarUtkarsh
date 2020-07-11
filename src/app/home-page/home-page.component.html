@@ -1,0 +1,50 @@
+<div *ngIf = "displayTable" class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h1 class="glow">Active:{{data[0].active}}</h1>
+    </div>
+    <div class="col-sm">
+      <h1 class="glow">Recovered:{{data[0].recovered}}</h1>
+    </div>
+    <div class="col-sm">
+      <h1 class="glow">Deaths:{{data[0].deaths}}</h1>
+    </div>
+    <div class="col-sm">
+      <h1 class= "glow">Confirmed:{{data[0].confirmed}}</h1>
+    </div>
+  </div>
+</div>
+
+<table *ngIf = "displayTable" class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">State Name</th>
+      <th scope="col">Active</th>
+      <th scope="col">Recovered</th>
+      <th scope="col">Deaths</th>
+      <th scope="col">Confirmed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let name of names; let idx = index;">
+      <!-- <th scope="row">{{idx}}</th> -->
+      <td (click) = "selectState(idx)">{{name}}</td>
+      <td>{{active[idx]}}</td>
+      <td>{{recovered[idx]}}</td>
+      <td>{{deaths[idx]}}</td>
+      <td>{{confirmed[idx]}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click) = "toggleDisplay()" type="button" class="btn btn-dark"><--Back></button>
+<div class="chart-wrapper">
+  <canvas baseChart 
+  [datasets]="barChartData"
+  [labels]="barChartLabels"
+  [options]="barChartOptions"
+  [plugins]="barChartPlugins"
+  [legend]="barChartLegend"
+  [chartType]="barChartType">
+</canvas>
+</div>
